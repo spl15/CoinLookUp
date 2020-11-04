@@ -8,11 +8,11 @@ import time
 from CoinClass import myCoin
 def iffy(num):
     if num < 0:
-        num = num * (-100)
-        return  'Down ' + str(num) + ' Percent' 
+        num = num * (-1.00)
+        return  'Down-' + str(num) + ' Percent' 
     else:
-        num = num * 100
-        return 'Up ' + str(num) + ' Percent'
+        num = num * 1.00
+        return 'Up+' + str(num) + ' Percent'
 
 def extractData(jsonObj):
     print('Name: ' + str(jsonObj['name']), end=' ')
@@ -24,9 +24,11 @@ def extractData(jsonObj):
                     if at == 'price':
                         print(str('{:.5f}'.format(va)))
                     if at == 'percent_change_24h':
-                        print('Percent Change in a Day: ' + str('{:.3f}'.format(va * 100)), end='  ')
+                        num = round(va,4)
+                        print('Percent Change in a Day: ' + iffy(num), end='  ')
                     if at == 'percent_change_7d':
-                        print('Percent Change in a Week: ' + str('{:.3f}'.format(va * 100)), end='\n\n')
+                        num = round(va,4)
+                        print('Percent Change in a Week: ' + iffy(num), end='\n\n')
 
 cmc = requests.get('https://coinmarketcap.com/')
 soup = BeautifulSoup(cmc.content, 'html.parser')
