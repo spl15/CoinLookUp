@@ -5,14 +5,13 @@ from bs4 import BeautifulSoup
 import requests
 import json
 import time
-from CoinClass import myCoin
-def iffy(num):
+def upOrDown(num):
     if num < 0:
         num = num * (-1.00)
-        return  'Down-' + str(num) + ' Percent' 
+        return  'Down -' + str(num) + '%' 
     else:
         num = num * 1.00
-        return 'Up+' + str(num) + ' Percent'
+        return 'Up +' + str(num) + '%'
 
 def extractData(jsonObj):
     print('Name: ' + str(jsonObj['name']), end=' ')
@@ -25,10 +24,10 @@ def extractData(jsonObj):
                         print(str('{:.5f}'.format(va)))
                     if at == 'percent_change_24h':
                         num = round(va,4)
-                        print('Percent Change in a Day: ' + iffy(num), end='  ')
+                        print('Percent Change in a Day: ' + upOrDown(num), end='  ')
                     if at == 'percent_change_7d':
                         num = round(va,4)
-                        print('Percent Change in a Week: ' + iffy(num), end='\n\n')
+                        print('Percent Change in a Week: ' + upOrDown(num), end='\n\n')
 
 cmc = requests.get('https://coinmarketcap.com/')
 soup = BeautifulSoup(cmc.content, 'html.parser')
