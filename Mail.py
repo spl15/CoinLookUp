@@ -6,8 +6,8 @@ from CoinLookV1_0 import getCoinData
 import smtplib
 
 # its me! pyyy botty
-gmail_user = 'pybottyy@gmail.com'
-gmail_password = 'ADRstreet#'
+gmail_user = 'USERNAME@gmail.com'
+gmail_password = 'PASSWORD'
 
 # get the coin data and put into a string to pass off into email
 coinData = getCoinData()
