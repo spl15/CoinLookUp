@@ -23,7 +23,7 @@ def extractData(jsonObj):
             for att,val in value.items():
                 for at,va in val.items():
                     if at == 'price':
-                       coinString = coinString + str('{:.5f}'.format(va)) + ' USD '
+                       coinString = coinString + 'Price: ' + str('{:.5f}'.format(va)) + ' USD '
                     if at == 'percent_change_24h':
                         num = round(va,4)
                         coinString = coinString + 'Percent Change in a Day: ' + upOrDown(num) + '  '
