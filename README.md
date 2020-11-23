@@ -4,7 +4,7 @@
 * Written in python3  
 \
 \
-primary use is to get some stats on some crypto coins
+Primary use is to get some stats on some crypto coins
 and send out a tweet for each coin once a day at a predetermined time every day.  
     
 Web scraping done by Beautiful Soup and coinmarketcap.com
